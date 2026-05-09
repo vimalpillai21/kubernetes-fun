@@ -1,0 +1,26 @@
+cd pods_and_containers
+nano readiness-hc.yml
+kubectl apply -f readiness-hc.yml
+kubectl get pods -o wide
+kubectl describe pod hc-probe
+clear
+kubectl get pods -o wide
+curl pod ip
+clear
+nano readiness-hc.yml
+change port of readiness to 9090
+kubectl apply -f readiness-hc.yml
+kubectl delete -f readiness-hc.yml
+kubectl get pods -o wide
+kubectl apply -f readiness-hc.yml
+kubectl get pods -o wide
+kubectl describe pod hc-probe
+clear
+kubectl get pods -o wide
+
+
+
+
+
+
+

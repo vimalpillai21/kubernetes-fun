@@ -1,0 +1,24 @@
+mkdir k8sObjectManagement
+vi pod.yml
+ll
+kubectl create -f pod.yml
+kubectl get 
+kubectl api-resources
+kubectl api-resources | wc -l
+kubectl get po
+kubectl get pods
+kubectl get pods draining-node-test-prod
+clear
+kubectl get pod -n kube-system
+kubectl get pods draining-node-test-prod -o wide
+kubectl get pods draining-node-test-prod -o json
+kubectl get pods draining-node-test-prod -o yaml
+kubectl describe pods draining-node-test-prod
+kubectl exec pods draining-node-test-prod -c nginx -- cat /etc/nginx/nginx.conf
+kubectl exec draining-node-test-prod -c nginx -- cat /etc/nginx/nginx.conf
+cat /etc/nginx/nginx.conf -- no exist in host computer
+clear
+kubectl delete po draining-node-test-prod
+kubectl get po
+
+

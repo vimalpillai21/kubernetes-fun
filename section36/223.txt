@@ -1,0 +1,26 @@
+kubectl get pods
+cd pods_and_containers
+ll
+nano example-posix-configmap.yml
+kubectl apply -f example-posix-configmap.yml
+clear
+kubectl get configmap
+kubectl describe configmap player-posix-demo
+nano configmap-posix-demo.yml
+kubectl apply -f configmap-posix-demo.yml
+kubectl describe pod configmap-posix-demo
+clear
+kubectl get pods
+kubectl exec pods configmap-posix-demo -it -- /bin/bash
+kubectl exec configmap-posix-demo -it -- /bin/bash
+
+-- container shell
+ls
+clear
+printenv
+
+
+
+
+
+

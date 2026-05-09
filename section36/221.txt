@@ -1,0 +1,42 @@
+mkdir pods_and_containers
+cd pods_and_containers
+ll
+nano example-ConfigMap.yml
+kubectl apply -f example-ConfigMap.yml
+kubectl get configmaps
+kubectl describe configmap player-pro-demo
+
+secrets
+convert username and password to base64
+echo -n 'admin' | base64
+echo -n 'adminpassword' | base64
+copy paste in file
+nano example-secret.yml
+kubectl apply -f example-secret.yml
+kubectl get secrets
+kubectl describe secret exmaple-secret
+no exposing the data in describe
+after creating secret delete the files
+
+environment
+nano configmap-env-demo.yml
+kubectl apply -f configmap-env-demo.yml
+clear
+kubectl get pods
+kubectl exec configmap-env-demo -it -- sh
+-- container shell
+ls
+echo $PROPERTIES_FILE_NAME
+echo $PLAYER_LIVES
+echo $SECRET_USERNAME
+printenv
+exit
+-- 
+
+
+
+
+
+
+
+

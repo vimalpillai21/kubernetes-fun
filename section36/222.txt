@@ -1,0 +1,20 @@
+kubectl get pods
+cd pods_and_containers
+ll
+nano configmap-vol-demo.yml
+kubectl apply -f configmap-vol-demo.yml
+kubectl exec configmap-vol-demo -it -- sh
+
+-- container shell
+cd /etc/config/configMap
+ll
+ls
+cat user-interface.properties
+cat base.properties
+cd ../secret
+ls
+cat username
+cat password
+
+
+

@@ -1,0 +1,29 @@
+cd pods_and_containers
+nano request_limit.yml
+top
+press 1
+ctrl c
+kubectl apply -f request_limit.yml
+kubectl get pods -o wide
+nano request_limit.yml
+update cpu usage for frontend-4 from 250 to 750
+update cpu usage for frontend-3 from 250 to 750
+kubectl apply -f request_limit.yml
+kubectl delete -f request_limit.yml
+kubectl get pods -o wide
+cat request_limit.yml
+clear
+kubectl apply -f request_limit.yml
+kubectl get pods -o wide
+kubectl delete -f request_limit.yml
+
+
+nano resource_limit.yml
+kubectl apply -f resource_limit.yml
+kubectl get pods -o wide
+
+
+
+
+
+

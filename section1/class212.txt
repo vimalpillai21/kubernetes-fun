@@ -1,0 +1,21 @@
+kubectl get nodes
+kubectl get pods -o wide --> displays nodes as well
+mkdir node_draining
+ll
+vi pods.yaml
+kubectl apply -f pods.yaml
+kubectl apply -f pods.yaml
+kubectl get pods -o wide
+vi deployment.yaml
+kubectl apply -f deployment.yaml
+clear
+kubectl get pods -o wide
+kubectl drain k8s-worker-2
+kubectl drain k8s-worker-2 --ignore-daemonsets
+kubectl drain k8s-worker-2 --ignore-daemonsets --force
+clear
+kubectl get nodes
+kubectl get pods -o wide
+kubectl uncordon k8s-worker-2
+kubectl get nodes
+kubectl get pods -o wide

@@ -1,0 +1,6 @@
+kubectl get namespaces
+kubectl create namespace development
+kubectl get namespaces
+
+
+

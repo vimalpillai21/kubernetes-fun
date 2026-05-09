@@ -1,0 +1,14 @@
+kubectl get serviceaccounts
+kubectl get serviceaccounts -n development
+kubectl get serviceaccounts -n kube-system
+clear
+cd k8sObjectManagement
+vi my-serviceaccount.yml
+kubectl apply -f my-serviceaccount.yml
+kubectl get serviceaccounts -n development
+kubectl get roles -n development
+vi serviceaccount-binding.yml
+kubectl apply -f serviceaccount-binding.yml
+kubectl get rolebinding -n development
+
+

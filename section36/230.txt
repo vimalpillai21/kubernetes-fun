@@ -1,0 +1,30 @@
+cd pods_and_containers
+clear
+nano always-restart.yml
+kubectl apply -f always-restart.yml
+kubectl get pods -o wide
+kubectl get pods -o wide -- after 20 seconds
+kubectl get pods -o wide -- after 20 seconds again
+clear
+remove unnecessary pods
+kubectl get pods -o wide
+nano onfailure-restart.yml
+kubectl apply -f onfailure-restart.yml
+kubectl get pods -o wide
+kubectl get pods -o wide -- wait 20 seconds --> Completed status
+kubectl delete -f onfailure-restart.yml
+kubectl get pods -o wide
+clear
+edit onfailure-restart.yml
+change command --> ['sh','-c','sleep 20; dummy command']
+kubectl apply -f onfailure-restart.yml
+kubectl get pods -o wide
+kubectl get pods -o wide -- after 20 seconds
+nano never-restart.yml
+kubectl apply -f never-restart.yml
+kubectl get pods -o wide
+kubectl get pods -o wide -- after 20 seconds
+
+
+
+

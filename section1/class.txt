@@ -1,0 +1,9 @@
+kubectl get namespaces
+-- default namespace
+kubectl get pods --> default namespace
+kubectl get pods --namespace kube-system
+kubectl get pods --all-namespaces
+clear
+kubectl create namespace levelup360
+kubectl get namespaces
+

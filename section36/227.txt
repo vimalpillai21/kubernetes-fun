@@ -1,0 +1,35 @@
+cd pods_and_containers
+nano liveness-hc.yml
+kubectl apply -f liveness-hc.yml
+kubectl get pods -o wide
+kubectl describe pod liveness-probe
+clear
+kubectl get pods -o wide -- restart count - 1
+kubectl get pods -o wide
+kubectl describe pod liveness-probe -- always restarts even if restartPolicy present or not
+clear
+kubectl get pods -o wide
+
+nano liveness-hc.yml
+kubectl apply -f liveness-hc.yml
+kubectl get pods -o wide
+kubectl get pods -o wide
+kubectl get pods -o wide
+kubectl describe pod liveness-probe-http
+curl pod ip of nginx -- nginx response
+clear
+kubectl delete -f liveness-hc.yml
+nano startup-hc.yml
+kubectl apply -f startup-hc.yml
+kubectl get pods -o wide
+kubectl get pods -o wide
+kubectl get pods -o wide
+kubectl get pods -o wide
+
+
+
+
+
+
+
+

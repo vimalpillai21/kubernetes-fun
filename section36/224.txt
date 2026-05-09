@@ -1,0 +1,28 @@
+cd pods_and_containers
+sudo apt update
+apt install apache2-utils
+clear
+htpasswd -c .htpasswd user
+enter easy password to remember
+ll
+ls -a
+cat .htpasswd
+kubectl create secret generic nginx-htpasswd --from-file .htpasswd
+kubectl get secrets
+kubectl describe secret nginx-htpasswd
+rm -rf .htpasswd
+clear
+nano nginx.conf
+kubectl create configmap nginx-config-file --from-file nginx.conf
+kubectl describe configmap nginx-config-file
+nano nginx-pod.yml
+kubectl apply -f nginx-pod.yml
+kubectl get pods -o wide
+curl 172.17.0.5
+curl -u user:test123 172.17.0.5
+
+
+
+
+
+
