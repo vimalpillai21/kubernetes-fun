@@ -1,0 +1,18 @@
+cd pods_and_containers
+nano init-container.yml
+kubectl apply -f init-container.yml
+kubectl get -f init-container.yml
+kubectl get services
+kubectl describe pod application-pod
+clear
+kubectl apply -f init-container.yml
+nano init-container-dependency.yml
+kubectl apply -f init-container-dependency.yml
+kubectl get -f init-container.yml
+kubectl get -f init-container-dependency.yml
+kubectl get -f init-container.yml
+
+
+
+
+

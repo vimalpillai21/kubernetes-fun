@@ -1,0 +1,19 @@
+cd pods_and_containers
+nano multi-container.yml
+remove container two manifest and create pod to check output
+kubectl apply -f multi-container.yml
+kubectl get pods -o wide
+curl pod ip --> no index.html
+update multi-container manifest and second container 
+nano multi-container.yml
+kubectl delete -f multi-container.yml
+kubectl apply -f multi-container.yml
+kubectl get pods -o wide
+kubectl get pods -o wide --> afer 15 seconds
+kubectl describe pod two-containers
+clear
+kubectl get pods -o wide --> second container has been completed
+curl pod ip --> index.html content in response
+
+
+
