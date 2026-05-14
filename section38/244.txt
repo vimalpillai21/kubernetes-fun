@@ -1,0 +1,30 @@
+use minikube cluster
+mkdir deployments
+cd deployments
+nano replication-controller.yml
+kubectl apply -f replication-controller.yml
+kubectl get replicationcontroller/alpine-box-replicationcontroller
+kubectl get pods -o wide
+kubectl delete pod alpine-box-replicationcontroller-dm9b5
+kubectl get replicationcontroller/alpine-box-replicationcontroller
+kubectl get pods -o wide
+clear
+kubectl get replicationcontroller/alpine-box-replicationcontroller
+horizontal scaling ---
+kubectl scale --replicas=6 replicationcontroller/alpine-box-replicationcontroller
+kubectl get replicationcontroller/alpine-box-replicationcontroller
+kubectl get pods -o wide
+kubectl scale --replicas=2 replicationcontroller/alpine-box-replicationcontroller
+kubectl get pods -o wide
+clear
+kubectl get pods -o wide
+kubectl get replicationcontroller/alpine-box-replicationcontroller
+kubectl delete -f replication-controller.yml
+kubectl get pods -o wide
+
+
+
+
+
+
+

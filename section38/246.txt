@@ -1,0 +1,39 @@
+cd deployments
+nano replica-set.yml
+kubectl apply -f replica-set.yml
+kubectl get replicaset.apps/myapp-replicas
+kubectl get rs/myapp-replicas // use rc for replicacontroller
+kubectl describe rs/myapp-replicas
+clear
+kubectl get pods -o wide
+kubectl scale --replicas=10 rs/myapp-replicas
+kubectl get pods -o wide
+kubectl scale --replicas=2 rs/myapp-replicas
+kubectl get pods -o wide
+clear
+nano bare-pods.yml
+kubectl apply -f bare-pods.yml
+kubectl get rs/myapp-replicas
+kubectl get pods -o wide
+kubectl describe pod mypod1
+clear
+kubectl delete -f replica-set.yml
+kubectl get pods -o wide
+clear
+cat replica-set.yml
+clear
+kubectl apply -f bare-pods.yml
+kubectl get pods -o wide
+kubectl apply -f replica-set.yml
+kubectl get pods -o wide
+kubectl get rs/myapp-replicas --> desired state matching due to pods with same label
+kubectl describe rs/myapp-replicas
+clear
+kubectl get pods -o wide
+kubectl delete pod mypod2
+kubectl get pods -o wide
+
+
+
+
+

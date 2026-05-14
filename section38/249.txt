@@ -1,0 +1,58 @@
+kubectl get rs
+kubectl get pods --show-labels
+kubectl set image deployment/chef-server chef-server=chef/chefdk:4.9.10
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+kubectl get pods --show-labels
+kubectl rollout status deployment.apps/chef-server
+clear
+kubectl rollout history deployment.apps/chef-server
+kubectl set image deployment/chef-server chef-server=chef/chefdk:4.9.13 --record
+kubectl rollout status deployment.apps/chef-server
+kubectl rollout history deployment.apps/chef-server
+kubectl get pods --show-labels
+kubectl describe pod chef-server-5b548bc578-ns7cc
+clear
+kubectl rollout undo deployment.apps/chef-server
+kubectl rollout status deployment.apps/chef-server
+kubectl rollout history deployment.apps/chef-server
+kubectl describe deployment.apps/chef-server
+clear
+kubectl rollout history deployment.apps/chef-server
+
+kubectl rollout undo deployment.apps/chef-server --to-revision=1
+kubectl describe deployment.apps/chef-server
+
+
+kubectl edit deployment.v1.apps/chef-server
+edit the ubuntu OS version and upgrade ubuntu to latest version and save
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+kubectl describe deployment.apps/chef-server
+clear
+kubectl rollout history deployment.apps/chef-server
+clear
+
+kubectl rollout pause deployment.apps/chef-server
+kubectl set image deployment/chef-server chef-server=chef/chefdk:4.9.16 --record
+kubectl rollout status deployment.apps/chef-server
+kubectl set image deployment/chef-server ubuntu=ubuntu:21.04 --record
+kubectl rollout status deployment.apps/chef-server
+
+kubectl set resources deployment.apps/chef-server -c=chef-server --limits=memory=250Mi
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+kubectl rollout history deployment.apps/chef-server
+kubectl rollout resume deployment.apps/chef-server
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+clear
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+kubectl describe deployment.apps/chef-server
+kubectl rollout history deployment.apps/chef-server
+
+kubectl scale deployment.apps/chef-server --replicas=5
+kubectl rollout status deployment.apps/chef-server
+kubectl get pods --show-labels
+

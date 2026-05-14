@@ -1,0 +1,13 @@
+cd deployments
+nano deployments.yml
+kubectl apply -f deployments.yml
+kubectl get deployment.apps/chef-server
+kubectl rollout status deployment.apps/chef-server
+kubectl describe deployment.apps/chef-server
+kubectl get rs
+kubectl get pods --show-labels
+
+
+
+
+

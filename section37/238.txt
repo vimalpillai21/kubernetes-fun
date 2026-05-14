@@ -1,0 +1,16 @@
+nano daemonsets.yml
+kubectl get pods -o wide
+kubectl apply -f daemonsets.yml
+kubectl get daemonsets
+kubectl get pods -o wide
+
+nano daemonsets.yml
+change spec -> selector -> matchLabels -> app: httpd-logging-1
+kubectl apply -f daemonsets.yml --> will get error
+kubectl describe pod logging-mcczp
+clear
+kubectl describe daemonsets logging
+
+
+
+

@@ -1,0 +1,23 @@
+kubectl get nodes
+ssh to worker node
+go to master node and execute
+kubectl get pods -o wide
+go to worker node and go to specifice location
+cd /etc/kubernetes/manifests/
+ll
+nano static-pod.yml
+copy nginx yml file without node-selector and change name to nginx-static-pod
+wait for some time or restart kubelet service
+sudo systemctl restart kubelet
+
+go to master node
+kubectl get pods -o wide
+kubectl describe pod nginx-static-pod-k8s-worker02
+clear
+kubectl get pods -o wide
+kubectl delete pod nginx-static-pod-k8s-worker02
+kubectl get pods -o wide --> pod is still running
+kubectl describe pod nginx-static-pod-k8s-worker02
+
+
+

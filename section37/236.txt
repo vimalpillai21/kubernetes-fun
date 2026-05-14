@@ -1,0 +1,40 @@
+kubectl get nodes
+kubectl get pods 
+mkdir pods_allocation
+cd pods_allocation
+nano nodeselector.yml
+kubectl apply -f nodeselector.yml
+kubectl get pods
+kubectl get pods -o wide
+kubectl describe pod nginx-nodeselector
+clear
+kubectl get pods -o wide
+kubectl get nodes --show-labels
+kubectl label nodes k8s-worker02 disktype=ssd
+kubectl get nodes --show-labels
+kubectl get pods -o wide
+kubectl get nodes --show-labels
+
+using nodeName to filter nodes
+add nodeName in yml file
+nano nodeName.yml
+kubectl apply -f nodeName.yml
+kubectl get pods -o wide
+
+using resource request with nodeselector
+nano resource_req1.yml
+kubectl apply -f resource_req1.yml
+kubectl get pods -o wide
+add --- in above file
+copy pod definition
+change pod name to frontend-app-1
+kubectl apply -f resource_req1.yml
+kubectl get pods -o wide
+kubectl get pods -o wide
+kubectl describe pod frontend-app-1
+clear
+nano resource_req2.yml without nodeselector
+kubectl apply -f resource_req2.yml
+kubectl get pods -o wide
+
+

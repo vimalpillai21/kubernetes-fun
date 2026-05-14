@@ -1,0 +1,12 @@
+kubectl get pods -o wide
+nano nodeaffinity.yml
+kubectl get nodes --show-labels
+kubectl apply -f nodeaffinity.yml
+kubectl get pods -o wide
+nano nodeantiaffinity.yml
+paste data in yml file
+kubectl apply -f nodeantiaffinity.yml
+kubectl get pods -o wide
+
+
+
