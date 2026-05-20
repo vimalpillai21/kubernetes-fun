@@ -1,0 +1,40 @@
+ls
+mkdir ingress-controller
+cd ingress-controller
+ls
+keep all files here
+nano nginx-deployment.yml
+ls
+clear
+kubectl create -f nginx-deployment.yml
+kubectl get deployment
+kubectl describe deployment nginx-official-deployment
+clear
+nano nginx-deployment-service.yml
+kubectl create -f nginx-deployment-service.yml
+nano magicalnginx-deployment.yml
+kubectl create -f magicalnginx-deployment.yml
+nano magicalnginx-deployment-service.yml
+kubectl create -f magicalnginx-deployment-service.yml
+clear
+kubectl get services
+minikube service magical-nginx --url
+curl url of service
+clear
+kubectl get services
+minikube service nginx-official-service --url
+curl url of service
+clear
+nano ingress-controller.yml
+kubectl create -f ingress-controller.yml
+kubectl describe ingress nginx-rules
+clear
+minikube ip
+curl ip -H 'Host: nginx-official.example.com'
+clear
+curl ip -H 'Host: magical-nginx.example.com'
+
+
+
+
+

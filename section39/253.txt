@@ -1,0 +1,17 @@
+cd basics2
+nano podlabels.yml
+ls
+chmod 777 podlabels.yml
+kubectl get nodes
+kubectl get nodes --show-labels
+kubectl create -f podlabels.yml
+clear
+kubectl get pods
+kubectl describe pod nginx-web
+clear
+kubectl get pods
+kubectl get nodes
+kubectl label nodes minikube disktype=ssd
+kubectl get nodes --show-labels
+kubectl get pods
+

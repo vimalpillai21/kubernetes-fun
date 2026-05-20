@@ -1,0 +1,26 @@
+kubectl get pods -o wide -n kube-system
+kubectl get services -o wide -n kube-system
+mkdir kubernetes_networking
+cd kubernetes_networking
+nano pods-dns.yml
+kubectl apply -f pods-dns.yml
+kubectl get pods -o wide
+clear
+kubectl get pods -o wide
+curl ip-of--> nginx-nodename pod
+curl 172-17-0-6.default.pod.cluster.local --> unable to access from host machine.
+
+in pod
+kubectl exec -it frontend-app sh
+apk update
+apk add curl
+curl --version
+clear
+curl 172-17-0-6.default.pod.cluster.local --> able to get access from inside pod --> inter pod comm using dns
+
+
+
+
+
+
+

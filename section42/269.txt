@@ -1,0 +1,73 @@
+mkdir k8s_storage
+cd k8s_storage
+nano hostpath-volume-pod.yml
+cd /var/tmp
+ls
+cd /root/k8s_storage
+kubectl apply -f hostpath-volume-pod.yml
+ls /var/tmp/
+cat /var/tmp/output.txt --> container is restart again due to lack of restart policy
+kubectl delete -f hostpath-volume-pod.yml
+ls /var/tmp/
+cat /var/tmp/output.txt
+kubectl apply -f hostpath-volume-pod.yml
+cat /var/tmp/output.txt
+clear
+kubectl delete -f hostpath-volume-pod.yml
+
+nano emptydir-volume-pod.yml
+kubectl apply -f emptydir-volume-pod.yml
+kubectl describe pod/redis-emptydir
+clear
+kubectl get pods -o wide
+kubectl exec -it redis-emptydir -- /bin/bash
+-- container
+ls
+cd redis
+ls
+cd /data/redis
+echo "Hello vimal, I am learning >> testfile.txt"
+ls
+pwd
+exit
+-- 
+kubectl exec -it redis-emptydir -- /bin/bash
+cd redis
+ls
+exit
+kubectl delete -f emptydir-volume-pod.yml
+kubectl get pods -o wide
+kubectl apply -f emptydir-volume-pod.yml
+kubectl exec -it redis-emptydir -- /bin/bash
+-- container
+cd redis
+ls
+exit
+--
+minikube ip
+-- open another terminal
+ssh root@ip
+enter the password
+clear
+kubectl get pods -o wide
+kubectl get pod redis-emptydir --watch
+--
+-- first terminal
+kubectl exec -it redis-emptydir -- /bin/bash
+cd redis/
+touch testfile2.txt
+ps -aux
+apt install update
+apt install procps
+clear
+ps -aux
+ls
+kill 1
+wait for few minutes to container to restart
+kubectl exec -it redis-emptydir -- /bin/bash
+cd redis/
+ls
+
+
+
+

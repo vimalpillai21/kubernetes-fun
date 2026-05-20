@@ -1,0 +1,17 @@
+cd k8s_storage
+nano common-volume-pod.yml
+kubectl apply -f common-volume-pod.yml
+kubectl describe pod/shared-multi-container
+clear
+kubectl get pods -o wide
+curl 172.17.0.8
+kubectl exec -it shared-multi-container -- bash
+ -- container
+ cd /usr/share/nginx/html
+ ls
+ echo "custom statement" >> index.html
+ cat index.html
+ exit
+ --
+ curl 172.17.0.8
+ 

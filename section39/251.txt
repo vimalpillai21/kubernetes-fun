@@ -1,0 +1,29 @@
+mkdir basic2
+cd basic2
+ls
+nano podmanifest.yml
+ls
+chmod 777 podmanifest.yml
+ls
+kubectl create -f podmanifest.yml
+clear
+kubectl create -f podmanifest.yml
+kubectl get pods
+nano podservice.yml
+chmod 777 podservice.yml
+ls
+kubectl create -f podservice.yml
+clear
+kubectl create -f podservice.yml
+kubectl get svc
+minikube service nginx-service --url
+curl ip_of_service
+clear
+kubectl delete service nginx-service
+kubectl create -f podservice.yml
+minikube service nginx-service --url
+kubectl describe service nginx-service
+
+
+
+

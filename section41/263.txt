@@ -1,0 +1,21 @@
+kubectl get services -o wide
+kubectl get pods -o wide --show-labels
+kubectl exec pod-svc-test -- curl nginx-service:8080
+clear
+nano dns-pod.yml
+kubectl get namepsaces --show-labels
+kubectl create namespace service-namespace
+kubectl get namespaces --show-labels
+kubectl apply -f dns-pod.yml
+kubectl get pods -o wide --show-labels
+kubectl get pods -o wide --show-labels -n service-namespace
+kubectl exec pod-svc-test -- curl nginx-service:8080
+clear
+kubectl exec -n service-namespace svc-test-dns -- curl nginx-service:8080
+kubectl exec pod-svc-test -- curl nginx-service:8080
+kubectl exec -n service-namespace svc-test-dns -- curl nginx-service.default.svc.cluster.local:8080
+
+
+
+
+

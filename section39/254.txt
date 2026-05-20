@@ -1,0 +1,12 @@
+cd basic2
+ls
+nano pod-lifecycle-hooks.yml
+chmod 777 pod-lifecycle-hooks.yml
+ls
+kubectl create -f pod-lifecycle-hooks.yml
+kubectl describe pod lifecycle-demo
+clear
+kubectl exec -it lifecycle-demo -- /bin/bash
+cat /usr/share/message
+
+

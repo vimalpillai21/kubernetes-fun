@@ -1,0 +1,31 @@
+use minikube
+mkdir k8s_services
+cd k8s_services
+ll
+nano svc-pod.yml
+kubectl apply -f svc-pod.yml
+kubectl describe deployment.apps/nginx-server
+clear
+kubectl get pods -o wide
+nano clusterip-svc.yml
+kubectl get pods -o wide --show-labels
+nano clusterip-svc.yml
+kubectl apply -f clusterip-svc.yml
+kubectl describe service/nginx-service
+nano clusterip-svc.yml --> change target port to 80 and port to 8080
+kubectl apply -f clusterip-svc.yml
+kubectl describe service/nginx-service
+clear
+curl nginx-service:8080
+nano temp-pod.yml
+kubectl apply -f temp-pod.yml
+kubectl exec pod-svc-test -- curl nginx-service:8080
+clear
+nano nodeport-svc.yml
+kubectl apply -f nodeport-svc.yml
+kubectl describe service/nginx-service-nodeport
+curl localhost:30099
+copy ip of droplet and access app in browser ip:30099
+
+
+

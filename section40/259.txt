@@ -1,0 +1,30 @@
+kubectl get nodes
+mkdir network_policy
+cd network_policy
+nano network -pol-pods.yml
+kubectl get namespace
+kubectl create namespace network-policy
+kubectl get namespace
+clear
+kubectl get namespace --show-labels
+kubectl label namespace network-policy role=test-network-policy
+kubectl get namespace --show-labels
+clear
+kubectl apply -f network-pol-pods.yml
+kubectl get pods -o wide -n network-policy
+kubectl exec -n network-policy busybox-pod -- curl 192.168.36.195
+clear
+nano network-policy.yml
+copy up till - Egress and then save file
+kubectl apply -f network-policy.yml
+kubectl get networkpolicy -n network-policy -o wide
+kubectl exec -n network-policy busybox-pod -- curl 192.168.36.195
+command not working
+nano network-policy.yml --> copy complete file including ingress and egress rules --> save it
+kubectl apply -f network-pol-pods.yml
+kubectl get networkpolicy -n network-policy -o wide
+kubectl exec -n network-policy busybox-pod -- curl 192.168.36.195
+
+
+
+

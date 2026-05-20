@@ -1,0 +1,29 @@
+cd k8s_storage
+nano localvolume-sc.yml
+kubectl apply -f localvolume-sc.yml
+kubectl describe storageclass.storage.k8s.io/local-storage
+nano my-persistent-vol.yml
+kubectl apply -f my-persistent-vol.yml
+kubectl describe persistentvolume/my-persistent-vol
+clear
+kubectl get pv -o wide
+nano my-pvc.yml
+kubectl apply -f my-pvc.yml
+kubectl describe persistentvolumeclaim/my-pvc
+clear
+kubectl get pv -o wide
+kubectl get pvc -o wide
+nano my-pvc-pod.yml
+kubectl apply -f my-pvc-pod.yml
+kubectl get pv -o wide
+kubectl get pvc -o wide
+
+kubectl edit pvc my-pvc
+change storage size 100 to 200Mi
+kubectl get pv -o wide
+kubectl get pvc -o wide
+kubectl delete -f my-pvc-pod.yml
+kubectl get pvc -o wide
+kubectl delete -f my-pvc.yml
+kubectl get pv -o wide
+
