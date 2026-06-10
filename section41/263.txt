@@ -2,7 +2,7 @@ kubectl get services -o wide
 kubectl get pods -o wide --show-labels
 kubectl exec pod-svc-test -- curl nginx-service:8080
 clear
-nano dns-pod.yml
+nano dns-pod.yml --> dns-service-pod.yml
 kubectl get namepsaces --show-labels
 kubectl create namespace service-namespace
 kubectl get namespaces --show-labels

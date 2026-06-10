@@ -32,7 +32,8 @@ clear
 minikube ip
 curl ip -H 'Host: nginx-official.example.com'
 clear
-curl ip -H 'Host: magical-nginx.example.com'
+curl ip -H 'Host: magical-nginx.example.com' 
+curl 127.0.0.1 -H 'Host: magical-nginx.example.com'
 
 
 

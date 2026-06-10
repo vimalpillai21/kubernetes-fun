@@ -3,11 +3,11 @@ mkdir k8s_services
 cd k8s_services
 ll
 nano svc-pod.yml
-kubectl apply -f svc-pod.yml
+kubectl apply -f svc-pod.yml --> deployment.yml
 kubectl describe deployment.apps/nginx-server
 clear
 kubectl get pods -o wide
-nano clusterip-svc.yml
+nano clusterip-svc.yml --> clusterip-service.yml
 kubectl get pods -o wide --show-labels
 nano clusterip-svc.yml
 kubectl apply -f clusterip-svc.yml
@@ -17,11 +17,11 @@ kubectl apply -f clusterip-svc.yml
 kubectl describe service/nginx-service
 clear
 curl nginx-service:8080
-nano temp-pod.yml
+nano temp-pod.yml --> pod-svc-test.yml
 kubectl apply -f temp-pod.yml
 kubectl exec pod-svc-test -- curl nginx-service:8080
 clear
-nano nodeport-svc.yml
+nano nodeport-svc.yml --> nodeport-service.yml
 kubectl apply -f nodeport-svc.yml
 kubectl describe service/nginx-service-nodeport
 curl localhost:30099
