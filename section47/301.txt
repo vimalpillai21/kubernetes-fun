@@ -1,0 +1,10 @@
+helm list -A
+helm get notes my-mariadb -n database
+clear
+helm get values my-mariadb -n database
+helm list -A
+helm get values my-mariadb -n database --revision 1
+helm get values my-mariadb -n database --revision 2
+clear
+helm get manifest my-mariadb -n database --revision 2
+helm get manifest my-mariadb -n database --revision 1

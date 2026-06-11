@@ -1,0 +1,11 @@
+helm list -A
+kubectl get secrets
+kubectl get secrets -n database
+helm uninstall my-mariadb -n database --keep-history
+helm uninstall my-maridb
+helm uninstall my-mariadb
+kubectl get secrets
+clear
+kubectl get secrets -n database
+helm uninstall -n database my-mariadb
+kubectl get secrets -n database

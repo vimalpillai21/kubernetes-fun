@@ -1,0 +1,20 @@
+helm repo list
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo list
+helm repo add brigade https://bridgadecore.github.io/charts
+helm repo list
+helm repo remove brigade
+helm repo list
+
+helm search repo mysql
+helm repo add brigade https://bridgadecore.github.io/charts
+helm repo list
+helm search repo mysql
+helm search repo nginx
+
+helm search repo nginx
+helm search hub nginx
+helm search hub nginx | wc -l
+helm search hub mysql | wc -l
+// test
+helm search hub nginx --> mention specific repo name --> hub

@@ -1,0 +1,27 @@
+clear
+helm list -A
+kubectl get secrets -n database
+helm history my-mariadb -n database
+helm get values my-mariadb -n database --revision 1
+helm get values my-mariadb -n database --revision 3
+clear
+helm rollback my-mariadb 1
+helm rollback my-mariadb 1 -n database
+helm list -A
+helm history my-mariadb -n database
+helm get values my-mariadb -n database --revision 4
+helm get values my-mariadb -n database --revision 3
+clear
+helm uninstall -n database my-mariadb --keep-history
+helm list -A
+kubectl get secrets -n database
+helm history my-mariadb -n database
+helm rollback my-mariadb 3 -n database
+helm list -A
+helm history my-mariadb -n database
+helm get values my-mariadb -n database --revision 5
+
+
+
+
+

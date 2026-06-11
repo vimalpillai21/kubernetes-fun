@@ -1,0 +1,43 @@
+helm list -A
+helm delete my-redis
+helm delete my-redis -n redis
+helm list -A
+clear
+kubectl get pods -A
+clear
+
+helm install my-mariadb bitnami/mariadb --version 11.4.0
+clear
+kubectl get pods
+kubectl delete pod redis-client
+kubectl get pods
+clear
+helm status my-mariadb
+$(kubectl get secret --namespace default my-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 -d)
+
+kubectl run my-mariadb-client --rm --tty -i --restart="Never" --image docker.io/bitnami/mariadb:10.6.11-debian-11-r0 --namespace default --command -- bash
+mysql -h my-mariadb.default.svc.cluster.local -uroot -p my_database
+enter the copied password
+show database;
+show tables;
+exit
+exit
+clear
+kubectl create namespace database
+helm install my-release --set auth.rootPassword="secretpassword",auth.database="app_database" my-repo/mariadb
+// do not execute the above command
+helm install my-release --value /path of YAML file my-repo/mariadb
+nano mariadb_custom_values.yml
+helm install -n database --values mariadb_custom_values.yml my-mariadb bitnami/mariadb --version 11.4.0
+clear
+kubectl get pods -n database
+kubectl get pods -n database
+clear
+helm status my-mariadb -n database
+kubectl run my-mariadb-client --rm --tty -i --restart='Never' --image docker.io/bitnami/mariadb:10.6.11-debian-11-r0 --namespace database --command -- bash
+mysql -h my-mariadb.database.svc.cluster.local -uroot -p helm_training
+enter password from yml file
+exit
+mysql -h my-mariadb.database.svc.cluster.local -ucustom_usr -p helm_training
+enter user password
+

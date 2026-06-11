@@ -1,0 +1,24 @@
+helm install -n database --values mariadb_custom_values.yml my-mariadb bitnami/mariadb --version 11.3.4
+clear
+kubectl get pods -n database
+kubectl get pods -n database
+helm list -A
+kubectl get secrets -n database
+nano mariadb_custom_values.yml
+and change password to Test54321
+helm upgrade -n database --values mariadb_custom_values.yml my-mariadb bitnami/mariadb --version 11.3.4
+clear
+helm list -A
+kubectl get secrets -n database
+helm upgrade -n database --values mariadb_custom_values.yml my-mariadb bitnami/mariadb --version 11.3.5
+clear
+helm list -A
+kubectl get secrets -n database sh.helm.release.v1.my-mariadb.v1
+kubectl get secrets -n database sh.helm.release.v1.my-mariadb.v1 -o yaml
+clear
+kubectl get secrets -n database
+kubectl get secrets -n database sh.helm.release.v1.my-mariadb.v3 -o yaml
+clear
+
+
+

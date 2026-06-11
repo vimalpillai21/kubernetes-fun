@@ -1,0 +1,17 @@
+helm list
+helm install my-redis bitnami/redis --version 17.3.11
+kubectl create namespace redis
+helm install -n redis my-redis bitnami/redis --version 17.3.11
+clear
+helm list
+helm list --all-namespaces
+helm list -A
+clear
+helm status my-redis
+clear
+helm status my-redis -n redis
+
+
+
+
+

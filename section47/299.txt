@@ -1,0 +1,1 @@
+helm template -n database --values mariadb_custom_values.yml my-mariadb bitnami/mariadb --version 11.4.0

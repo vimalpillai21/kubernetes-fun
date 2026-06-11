@@ -1,0 +1,25 @@
+helm version
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-redis bitnami/redis --version 17.3.9
+kubectl get pods
+kubectl get all
+clear
+
+export REDIS_PASSWORD=$(kubectl get secret --namespace default my-redis -o jsonpath="{.data.redis-password}" | base64 -d)
+kubectl run --namespace default redis-client --restart='Never' --env REDIS_PASSWORD=$REDIS_PASSWORD --image docker.io/bitnami/redis:7.0.5-debian-11-r15 --comand --sleep infinity
+kubectl get all
+kubectl exec --tty -i redis-client --namespace default -- bash
+REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli -h my-redis-master
+keys*
+SET mykeys "Hello Friends"
+GET mykeys
+exit
+REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli -h my-redis-replicas
+GET mykeys
+exit
+exit
+helm list
+
+
+
+

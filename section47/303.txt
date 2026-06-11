@@ -1,0 +1,19 @@
+helm list -A
+helm install my-mysql bitnami/mysql --version 9.4.4 --wait --timeout 20m
+clear
+kubectl get pods
+helm list -A
+helm upgrade my-mysql bitnami/mysql --version 9.4.2 --wait --timeout 20m
+clear
+kubectl get pods
+helm list -A
+helm upgrade my-mysql bitnami/mysql --version 9.4.2 --set image.pullPolicy="anshul" --wait --timeout 20m
+helm list -A
+helm history my-mysql
+clear
+helm upgrade my-mysql bitnami/mysql --version 9.4.2 --set image.pullPolicy="anshul" --atomic
+helm history my-mysql
+
+
+
+
