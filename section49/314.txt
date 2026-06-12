@@ -1,0 +1,23 @@
+// inside values.yaml file line 4
+customblock:
+    author:
+        name: "Edward"
+        address: "Street 5, 248, New York"
+//
+// deployment.yaml file
+line 2 : kind: Deployment
+replace line 3 with
+{{- .Values.customblock.author.name}}
+{{- .Values.customblock.author.address}}
+
+{{- "Values from Chart"}}
+{{- .Chart.apiVersion}}
+{{- .Chart.keywords}}
+{{- .Chart.maintainers.email}}
+//
+git push
+git pull
+helm template my-first-chart/
+
+
+

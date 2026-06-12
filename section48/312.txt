@@ -1,0 +1,12 @@
+ls
+helm lint my-first-chart
+clear
+nano my-first-chart/Chart.yaml
+comment apiVersion
+helm lint my-first-chart
+helm lint my-first-chart
+
+
+
+
+

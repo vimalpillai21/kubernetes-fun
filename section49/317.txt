@@ -1,0 +1,42 @@
+in the values.yaml file
+//
+change data under customblock.author to below
+name: true
+//
+in the deployment.yaml file
+clean from line 3 till metadata:
+and add the following
+{{- if .Values.customblock.author.name }}
+{{"Custom Value is present" | nindent 4}}
+{{- end }}
+git pull
+helm template my-first-chart/
+in the values.yaml file
+//
+change data under customblock.author to below
+name: false
+//
+clear
+helm template my-first-chart/
+in the values.yaml file
+//
+change data under customblock.author to below
+name: false
+//
+in the deployment.yaml file
+clean from line 3 till metadata:
+and add the following
+{{- if .Values.customblock.author.name }}
+{{"Custom Value is present" | nindent 4}}
+{{- else }}
+{{"Custom value boolean is false" | nindent 4}}
+{{- end }}
+clear
+git pull
+helm template my-first-chart/
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+change line 3 in deployment.yaml after kind: Deployment -- correct indentation
+{{.Values.customblock.author.address}}
+{{.Values.customblock.author.addresss | default "Hi, I am not Null"}}
+{{.Values.customblock.author.address | default "Hi, I am not Null"}}
+{{.Values.customblock.author.address | default "Hi, I am not Null" | upper}}
+{{.Values.customblock.author.address | default "Hi, I am not Null" | upper | quote}}
+git push
+git pull
+helm template my-first-chart/
+
+// in the values.yaml
+add the following
+email:     // under customblock
+change this line 4 in deployment.yaml to
+{{.Values.customblock.author.email | default "Hi, I am not Null"}}
+git push
+git pull
+helm template my-first-chart/

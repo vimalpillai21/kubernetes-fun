@@ -1,0 +1,26 @@
+helm ls -A
+pwd
+git clone -b master https://github.com/anshulc55/HELM.git
+ls
+cd HELM
+clear
+ls
+mkdir create_charts
+cd create_charts
+clear
+pwd
+helm create my_first_chart
+ls
+cd my_first_chart
+ls
+clear
+ls
+cd charts
+cd ../templates
+ls
+cd tests
+ll
+
+
+
+

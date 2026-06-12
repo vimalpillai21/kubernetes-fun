@@ -1,0 +1,13 @@
+change line 4 in deployment.yaml after kind: Deployment -- correct indentation
+{{.Values.customblock.author.email | default "Hi, I am not Null" | nindent 2}}
+{{.Values.customblock.author.address | default "Hi, I am not Null"  | nindent 4}}
+{{.Values.customblock.author.address | default "Hi, I am not Null" | upper | nindent 6}}
+{{.Values.customblock.author.address | default "Hi, I am not Null" | upper | quote | nindent 8}}
+git push
+clear
+git pull
+helm template my-first-chart/
+
+
+
+

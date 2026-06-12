@@ -1,0 +1,64 @@
+in the deployment.yaml file
+clean from line 3 till metadata:
+in the values.yaml file
+change line 4 to below values
+customblock:
+  author:
+    name:
+      - "Edward"
+      - "Peter"
+      - "Mark"
+      - "Juan"
+      - "Camela"
+in the deployment.yaml file
+clean from line 3:
+{{- with .Values.customblock.author.name }}
+{{- toYaml . | nindent 4 }} // try $.
+{{- end }}
+git push
+clear
+git pull
+helm template my-first-chart/
+in the deployment.yaml file
+clean from line 3:
+{{- with .Values.customblock.author.name }}
+author:
+{{- toYaml . | nindent 4 }} // try $.
+{{- end }}
+git push
+clear
+git pull
+helm template my-first-chart/
+
+in the deployment.yaml file
+clean from line 3:
+{{- with .Values.customblock.author.name }}
+author:
+{{- toYaml . | nindent 4 }} 
+{{- else}}
+{{"Hi, I am without with Block." | nindent 4 }}
+{{- end }}
+in the values.yaml file
+change line 4 to below values
+customblock:
+  author:
+    name: {}
+git push
+clear
+git pull
+helm template my-first-chart/
+in the values.yaml file
+change line 4 to below values
+customblock:
+  author:
+    name:
+      - "Edward"
+      - "Peter"
+      - "Mark"
+      - "Juan"
+      - "Camela"
+git push
+clear
+git pull
+helm template my-first-chart/
+

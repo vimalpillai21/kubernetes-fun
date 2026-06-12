@@ -1,0 +1,8 @@
+in deployment.yaml file after line 2 : kind: Deployment
+enter tab space {{- "Hi team, we are learning - "}}, {{- "HELM"}}
+git push
+git pull
+clear
+cd /H/create_charts/
+ls
+helm template my-first-chart/

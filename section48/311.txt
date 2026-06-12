@@ -1,0 +1,16 @@
+clear
+ls
+cd HELM/create_charts/
+ls
+change replicaCount: 3
+change version: 1.0.0
+git push
+git pull in server
+clear
+helm package my-first-chart/
+helm package my-first-chart/ -u // if your chat has dependencies
+helm package my-first-chart/ -d /root/
+
+
+
+

@@ -1,0 +1,10 @@
+clear
+pwd
+ls
+helm ls -A
+helm install custom-deployment my-first-chart/
+clear
+helm ls -A
+kubectl get pods
+
+

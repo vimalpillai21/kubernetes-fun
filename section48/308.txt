@@ -1,0 +1,6 @@
+helm ls -A
+helm uninstall my-mysql
+helm uninstall my-mariadb -n database
+helm ls -A
+clear
+kubectl get all
