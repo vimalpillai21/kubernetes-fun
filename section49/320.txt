@@ -1,0 +1,86 @@
+in the deployment.yaml file
+add after line 2 - kind:
+# {{ $myVar := true }}
+# {{- if $myVar }}
+# {{"Hi, I am with Variable True" | nindent 4}}
+# {{- else }}
+# {{"Hi, I am with variable False" | nindent 4}}
+# {{- end }}
+
+line 11
+{{- with .Values.customblock.author.name}}
+author:
+{{- toYaml . | nindent 4 }}
+# {{- else }}
+# {{"Hi, I am without Block." | nindent 4}}
+{{- end }}
+
+line 18
+{{- range .Values.customblock.author.name}}
+author:
+  - {{ . }}
+{{- end }}
+
+in the values.yaml file
+change line 4 to below values
+customblock:
+  author:
+    name:
+      - "Edward"
+      - "Peter"
+      - "Mark"
+      - "Juan"
+      - "Camela"
+      - "Julia"
+
+git push
+clear
+git pull
+helm template my-first-chart/
+remove the commented lines from above files
+git push
+clear
+git pull
+helm template my-first-chart/
+
+in the deployment.yaml file
+add after line 2 - kind:
+line 18
+author:
+{{- range .Values.customblock.author.name}}
+  - {{ . }}
+{{- end }}
+
+images:
+{{- range $key, $value .Values.image}}
+  {{$key}}:{{$value}}
+{{- end }}
+
+git push 
+clear
+git push
+helm template my-first-chart/
+
+
+images:
+{{- range $key, $value := .Values.image}}
+  {{$key}}:{{$value}}
+{{- end }}
+
+git push 
+clear
+git push
+helm template my-first-chart/
+
+
+images:
+{{- range $key, $value := .Values.image}}
+  {{$key}}:{{$value | quote}}
+{{- end }}
+
+git push 
+clear
+git push
+helm template my-first-chart/
+
+

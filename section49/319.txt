@@ -1,0 +1,17 @@
+in the deployment.yaml file
+add after line 2 - kind:
+{{ $myVar := true }}
+{{- if $myVar }}
+{{"Hi, I am with Variable True" | nindent 4}}
+{{- else }}
+{{"Hi, I am with variable False" | nindent 4}}
+{{- end }}
+
+git push
+git pull
+helm template my-first-chart/
+change line 3 in deployment.yaml
+{{ $myVar := .Values.autoscaling.enabled }}
+git push
+clear
+git pull

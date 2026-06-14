@@ -1,0 +1,58 @@
+in the values.yaml file, add below lines
+mysql:
+  enabled: false
+
+edit the Chart.yaml file and add the following
+
+dependencies:
+  - name: mysql
+    version: "9.4.5"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled
+  - name: rabbitmq
+    version: "11.2.2"
+    repository: "https://charts.bitnami.com/bitnami"
+
+git push
+clear 
+git pull 
+helm ls
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+clear
+helm ls
+kubectl get pods
+
+in the values.yaml file, add below lines
+mysql:
+  enabled: true
+
+rabbitmq:
+  enabled: false
+edit the Chart.yaml file and add the following
+
+dependencies:
+  - name: mysql
+    version: "9.4.5"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled
+  - name: rabbitmq
+    version: "11.2.2"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: rabbitmq.enabled
+
+git push
+clear 
+git pull 
+helm ls
+kubectl get pods
+helm upgrade custom-rel /root/HELM/create_charts/my-first-chart --> error
+helm uninstall custom-rel
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+helm ls
+clear
+kubectl get pods
+
+
+
+
+

@@ -1,0 +1,57 @@
+edit the Chart.yaml file and add the following
+
+dependencies:
+  - name: mysql
+    version: "9.4.5"
+    repository: "https://charts.bitnami.com/bitnami"
+  - name: rabbitmq
+    version: "11.2.2"
+    repository: "https://charts.bitnami.com/bitnami"
+
+ls
+cd HELM/
+git pull
+cd create_charts/
+ls
+cd my-first-chart/
+ls
+cd charts/
+ls
+clear
+cd ../../
+pwd
+ls
+clear
+pwd
+ls 
+helm dependency update my-first-chart
+cd my-first-chart/charts/
+ls
+helm ls
+helm uninstall custom-deployment
+clear
+helm ls
+kubectl get pods
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+reset deployments.yaml file --> remove lines between kind and metadata tags
+git push
+clear 
+git pull 
+clear
+helm ls
+helm uninstall custom-rel custom-rel1
+clear
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+helm ls
+clear
+kubectl get pods
+kubectl get pods
+helm uninstall custom-rel
+kubectl get pods
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+clear
+nano my-first-chart/Chart.yaml
+comment name key value in the above file
+helm template my-first-chart/
+helm lint my-first-chart
+helm install my-chart my-first-chart/ --dry-run
+uncomment name key value in the above file - my-first-chart/Chart.yaml
+nano my-first-chart/templates/deployment.yaml
+deployment.name --> remove one { curly bracket 
+helm template my-first-chart/
+helm lint my-first-chart
+helm install my-chart my-first-chart/ --dry-run
+clear
+nano my-first-chart/templates/deployment.yaml
+deployment.name --> add previously removed one { curly bracket 
+comment the apiVersion and save
+helm lint my-first-chart
+helm template my-first-chart/
+clear
+helm install my-chart my-first-chart/ --dry-run
+
+nano my-first-chart/templates/deployment.yaml
+uncomment the apiVersion and save
+nano my-first-chart/values.yaml
+change replicaCount: "vimal"
+helm lint my-first-chart
+helm template my-first-chart/
+helm install my-chart my-first-chart/ --dry-run
+
+

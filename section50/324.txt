@@ -1,0 +1,59 @@
+in the values.yaml file, add below lines
+mysql:
+  enabled: true
+
+rabbitmq:
+  enabled: true
+
+in the values.yaml file, add below lines
+mysql:
+  enabled: true
+  auth:
+    database: "my_custom_db"
+    username: "customowner"
+    password: "test12345"
+
+helm ls
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+kubectl get pods
+kubectl get services
+
+in the values.yaml file, add below lines
+mysql:
+  enabled: true
+  auth:
+    database: "my_custom_db"
+    username: "customowner"
+    password: "test12345"
+  primary:
+    service:
+      type: NodePort
+      nodePorts:
+        - nodePort: 31025
+
+clear
+git pull
+kubectl get services
+helm uninstall custom-rel
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+in the values.yaml file, add below lines
+mysql:
+  enabled: true
+  auth:
+    database: "my_custom_db"
+    username: "customowner"
+    password: "test12345"
+  primary:
+    service:
+      type: NodePort
+
+git push
+clear
+git pull
+helm uninstall custom-rel
+clear
+helm install custom-rel /root/HELM/create_charts/my-first-chart
+kubectl get services
+
+
+
