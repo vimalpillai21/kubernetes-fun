@@ -55,5 +55,17 @@ clear
 helm install custom-rel /root/HELM/create_charts/my-first-chart
 kubectl get services
 
-
+// error correction
+in the values.yaml file, add below lines
+mariadb:
+  enabled: true
+  auth:
+    database: "hello"
+    username: "vimal"
+    password: "admin@123"
+  primary:
+    service:
+      type: NodePort
+      nodePorts:
+        mariadb: "31026"
 

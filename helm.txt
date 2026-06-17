@@ -1,0 +1,47 @@
+LAST DEPLOYED: Sun Jun 14 15:03:24 2026
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+Redis has been deployed.
+Architecture: standalone
+
+To get your Redis password:
+
+  export REDIS_PASSWORD=$(kubectl get secret --namespace default my-redis -o jsonpath="{.data.redis-password}" | base64 -d)
+
+To connect:
+
+  kubectl run --namespace default redis-client --rm -it --restart=Never \
+    --image ghcr.io/kubelauncher/redis@sha256:ece621f8d6f18b5f1531c10107163079e4be7c273bd163c2d40a6b1e6ceff62a -- \
+    redis-cli -h my-redis -a vimal
+    
+    
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+MySQL has been deployed.
+
+To get the root password:
+
+  export MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace default mysql -o jsonpath="{.data.mysql-root-password}" | base64 -d)
+
+To connect:
+
+  kubectl run --namespace default mysql-client --rm -it --restart=Never \
+    --image ghcr.io/kubelauncher/mysql@sha256:6b737fd2b41da303bfa8f0161517ba8767292a17454e6004d2376bb2c41f546b -- \
+    mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD mysql
+    
+    
+    
+    
+export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace default maria-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 -d)
+
+To connect:
+
+  kubectl run --namespace default mariadb-client --rm -it --restart=Never     --image ghcr.io/kubelauncher/mariadb@sha256:4583e611be11cc516e2536a0b2cbd8ef67fd432614f801b47294aefe65978a45 --     mariadb -h maria-mariadb.default.svc.cluster.local -u root -p$MARIADB_ROOT_PASSWORD
+
+

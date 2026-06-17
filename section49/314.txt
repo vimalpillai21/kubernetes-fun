@@ -11,9 +11,9 @@ replace line 3 with
 {{- .Values.customblock.author.address}}
 
 {{- "Values from Chart"}}
-{{- .Chart.apiVersion}}
-{{- .Chart.keywords}}
-{{- .Chart.maintainers.email}}
+{{- .Chart.APIVersion}}
+{{- .Chart.Keywords}}
+{{- .Chart.Maintainers}}
 //
 git push
 git pull
