@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-server
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-server
+  template:
+    metadata:
+      labels:
+        app: nginx-server
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          command:
+            - /bin/sh
+          args:
+            - '-c'
+            - echo Hello from the nginx container; sleep 3600
+        - name: ubuntu
+          image: ubuntu:latest
+          ports:
+            - containerPort: 8080
+          command:
+            - /bin/sh
+          args:
+            - '-c'
+            - echo Hello from the ubuntu container; sleep 3600

@@ -1,7 +1,7 @@
 kubectl get nodes
 mkdir network_policy
 cd network_policy
-nano network -pol-pods.yml
+nano network-pol-pods.yml
 kubectl get namespace
 kubectl create namespace network-policy
 kubectl get namespace

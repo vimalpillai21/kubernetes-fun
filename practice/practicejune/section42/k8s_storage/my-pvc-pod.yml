@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pv
+spec:
+  restartPolicy: Never
+  containers:
+    - name: ubuntu
+      image: ubuntu:latest
+      command: ["/bin/sh","-c","echo Hello Team, This is persistent volume claim >> /output/output.txt"]
+      volumeMounts:
+        - name: my-pv
+          mountPath: /output
+  volumes:
+    - name: my-pv
+      persistentVolumeClaim:
+        claimName: my-pvc

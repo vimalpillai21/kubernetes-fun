@@ -1,0 +1,30 @@
+auth:
+  enabled: true
+  password: "vimal"
+primary:
+  ## ... keep other configurations ...
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 0        # Changed from 1001 to run as root
+    runAsGroup: 0       # Changed from 1001
+    runAsNonRoot: false # Changed from true to allow root execution
+    allowPrivilegeEscalation: true # Changed from false so it can write to /data
+    readOnlyRootFilesystem: false
+    capabilities:
+      drop: ["ALL"]
+    seccompProfile:
+      type: RuntimeDefault
+
+replica:
+  ## ... keep other configurations ...
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 0        # Changed from 1001 to run as root
+    runAsGroup: 0       # Changed from 1001
+    runAsNonRoot: false # Changed from true to allow root execution
+    allowPrivilegeEscalation: true # Changed from false
+    readOnlyRootFilesystem: false
+    capabilities:
+      drop: ["ALL"]
+    seccompProfile:
+      type: RuntimeDefault

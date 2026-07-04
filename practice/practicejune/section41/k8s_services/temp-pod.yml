@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-svc-test
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu
+      command:
+        - /bin/bash
+        - -c
+        - |
+            apt update && apt install curl -y && sleep 3600

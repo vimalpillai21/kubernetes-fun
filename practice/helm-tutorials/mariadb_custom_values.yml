@@ -1,0 +1,5 @@
+auth:
+  database: "college"
+  username: "vimal"
+  password: "vimal@54321"
+  rootPassword: "admin@123"

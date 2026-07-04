@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: sample-network-policy
+  namespace: network-policy
+spec:
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            role: test-network-policy
+      ports:
+        - protocol: TCP
+          port: 80
+  egress:
+    - {}

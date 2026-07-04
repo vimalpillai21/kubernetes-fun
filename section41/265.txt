@@ -30,6 +30,9 @@ kubectl create -f ingress-controller.yml
 kubectl describe ingress nginx-rules
 clear
 minikube ip
+minikube addons enable ingress
+minikube tunnel
+then docker node  ip - 127.0.0.1
 curl ip -H 'Host: nginx-official.example.com'
 clear
 curl ip -H 'Host: magical-nginx.example.com' 

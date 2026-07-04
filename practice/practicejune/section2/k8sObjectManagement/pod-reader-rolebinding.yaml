@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-rolebinding
+  namespace: development
+subjects:
+  - name: DevUser
+    kind: User
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  name: pod-reader
+  kind: Role
+  apiGroup: rbac.authorization.k8s.io
