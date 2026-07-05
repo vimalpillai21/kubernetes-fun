@@ -1,0 +1,9 @@
+dependencies:
+- name: mariadb
+  repository: https://kubelauncher.github.io/charts
+  version: 0.5.0
+- name: rabbitmq
+  repository: https://kubelauncher.github.io/charts
+  version: 0.2.5
+digest: sha256:1b7198b7473ad818ad343093edadfe421ace142813b3c1ac59120f6dcd63a8ad
+generated: "2026-06-17T20:03:46.597891036+05:30"
