@@ -1,0 +1,5 @@
+auth:
+  database: "helm_training"
+  password: "vimal"
+  username: "vimaladmin"
+  rootPassword: "admin@123"
