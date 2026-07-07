@@ -1,0 +1,9 @@
+dependencies:
+- name: mariadb
+  repository: https://kubelauncher.github.io/charts
+  version: 0.5.3
+- name: redis
+  repository: https://kubelauncher.github.io/charts
+  version: 0.4.4
+digest: sha256:db9d7e1e0b48ba6eeee415e48cdac771d721045ee55016e9b8eea67172989ebf
+generated: "2026-07-07T16:49:33.410273278+05:30"

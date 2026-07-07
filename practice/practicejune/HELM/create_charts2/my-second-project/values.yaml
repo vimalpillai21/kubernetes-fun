@@ -174,3 +174,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+mariadb:
+  enabled: true
+  auth:
+    database: "helm_training"
+    password: "vimal"
+    username: "vimaladmin"
+    rootPassword: "admin@123"
+  primary:
+    service:
+      type: NodePort
+      nodePorts:
+        mariadb: "31026"
+redis:
+  enabled: true
